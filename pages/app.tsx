@@ -1,12 +1,9 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import useUser from '../hooks/useUser';
+import Worlds from '../components/Worlds';
 
 export default function App() {
-  const router = useRouter();
-  const { error } = useUser();
-  useEffect(() => {
-    if (error?.status === 401) router.replace('/login');
-  }, [error]);
-  return <div>hello world</div>;
+  const { status: userStatus } = useUser();
+  return (
+    <div>{userStatus === 'loading' ? <div>loading...</div> : <Worlds />}</div>
+  );
 }
