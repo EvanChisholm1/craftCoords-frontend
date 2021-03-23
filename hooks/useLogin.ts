@@ -1,6 +1,6 @@
 import { useMutation, UseMutationOptions } from 'react-query';
 import { useTokenContext } from '../components/TokenContext';
-import { API_URL } from '../constants';
+import { API_URL } from 'constants/';
 import { HttpError } from '../lib/HttpError';
 
 interface LoginArgs {

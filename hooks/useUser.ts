@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { API_URL } from '../constants';
+import { API_URL } from 'constants/index';
 import { HttpError } from '../lib/HttpError';
 
 interface MeResponse {
