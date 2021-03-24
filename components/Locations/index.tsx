@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useQuery } from 'react-query';
 import { WorldType } from 'types/apiTypes';
 import Location from 'components/Location';
+import CreateLocation from 'components/CreateLocation'
 
 interface Props {
   id: string;
@@ -28,6 +29,7 @@ const World: FC<Props> = ({ id }) => {
       ) : (
         <>
           <h1>{world.name}</h1>
+          <CreateLocation worldId={id} />
           <ul>
             {world.coords.map(location => (
               <li key={location._id}>

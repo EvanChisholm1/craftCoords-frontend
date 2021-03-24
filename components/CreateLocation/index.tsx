@@ -15,9 +15,9 @@ interface LocationMutationVars {
 
 const CreateLocation: FC<Props> = ({ worldId }) => {
   const queryClient = useQueryClient();
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [z, setZ] = useState(0);
+  const [x, setX] = useState<undefined | number>();
+  const [y, setY] = useState<undefined | number>();
+  const [z, setZ] = useState<undefined | number>();
   const [name, setName] = useState('');
 
   const createLocation = useMutation(

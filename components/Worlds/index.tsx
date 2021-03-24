@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import useWorlds from '../../hooks/useWorlds';
-import Link from 'next/link';
+import WorldItem from 'components/WorldItem';
+import CreateWorld from 'components/CreateWorld';
 
 const Worlds: FC = () => {
   const { status, error, data } = useWorlds();
@@ -13,17 +14,14 @@ const Worlds: FC = () => {
           Error {error.status}: {error.message}
         </h1>
       ) : (
-        <div>
-          {data.worlds.map(world => (
-            <div key={world._id}>
-              <Link href={`/worlds/${world._id}`}>
-                <a>
-                  <h2>{world.name}</h2>
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
+        <>
+          <CreateWorld />
+          <ul>
+            {data.worlds.map(world => (
+              <WorldItem key={world._id} id={world._id} name={world.name} />
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

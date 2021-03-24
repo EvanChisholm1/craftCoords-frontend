@@ -12,10 +12,7 @@ export default function WorldPage(props) {
   return (
     <div>
       {id && (
-        <>
-          <CreateLocation worldId={id as string} />
           <World id={id as string} />
-        </>
       )}
     </div>
   );
